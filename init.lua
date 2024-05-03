@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.opt`
@@ -180,6 +180,14 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 -- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+
+-- Switch Tab and Create Terminal
+vim.keymap.set('n', '<leader>q', '<cmd>tabNext<CR>', { desc = 'Switch Tab' })
+vim.keymap.set('n', '<leader>Q', '<cmd>tabnew<CR>', { desc = 'Create a New Tab' })
+vim.keymap.set('n', '<leader>QT', function()
+  vim.cmd.tabnew()
+  vim.cmd.terminal()
+end, { desc = 'Create a New Tab and Open Terminal' })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
